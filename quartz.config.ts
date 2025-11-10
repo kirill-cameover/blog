@@ -18,7 +18,7 @@ const config: QuartzConfig = {
     locale: "ru-RU",
     baseUrl: "kirill-cameover.github.io/blog/",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    defaultDateType: "published",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

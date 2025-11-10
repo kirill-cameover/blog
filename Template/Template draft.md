@@ -3,5 +3,5 @@ title:
 tags: 
 description: 
 publish: 
-date:
+date: ""
 ---
