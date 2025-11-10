@@ -76,6 +76,13 @@ date: ""
 
 ### Алгоритм получения **ISO 9001:2015** 
 1. ==(процесс сложный, изучаю)==
+2. [Курс по ISO 9001](https://digital.lorators.com/iso-training/) - ==пройден==. Курс рассказывает, что такое ISO сертификат для работника - курс для работника. На самом деле супер базовый 
+3. Чек Лист для ISO 9001
+![[BAB-ISO-9001-Checklist.pdf]]
+
+
+###### Цена: 
+Исходя из источников, цены начинаются **от 2.000$** и могут достигать **десятки тыс. $** в зависимости от размера компании и кол-чт получаемых ISO стандартов. 
 
 ### Компании, которые сертифицируют ISO (дополняю)
 ###### Европа 
@@ -83,6 +90,8 @@ date: ""
 - https://certificationmalta.com/ 
 - https://www.jrconsultants.co.uk/marketing-companies/ 
 - https://www.assentriskmanagement.co.uk/iso-tracks/ - судя по сайту компания топ для ISO сертификации 
+- https://iso9001.com/about-us/ 
+- https://amtivo.com/uk/standards/iso-9001/ 
 - 
 
 ###### Индия (почему-то много компаний отсюда)
@@ -92,10 +101,17 @@ date: ""
 
 ###### США
 - https://omgcenter.org/# - не совсем агентство - консалтинг
+- https://icsconsulting.com.au/standards/iso-9001-quality/ 
 - 
 
 
 
+#### Дополнительные полезные материалы 
+- Подкаст 2025 года про ISO 27 эпизодов - https://www.thecoresolution.com/iso-9001-podcast 
+- [форум про ISO](https://elsmar.com/elsmarqualityforum/forums/iso-9000-iso-9001-and-iso-9004-quality-management-systems-standards.208/)
+- Курс: https://iso9001.com/free-iso-9001-training/ 
+- [Курс по ISO 9001](https://digital.lorators.com/iso-training/) - ==пройден==. Курс рассказывает, что такое ISO сертификат для работника - курс для работника. На самом деле супер базовый 
+- 
 
 
 
