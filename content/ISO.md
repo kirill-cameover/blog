@@ -1,9 +1,9 @@
 ---
-title: Что такое ISO Сертификат?
+title: ISO Сертификат
 tags:
   - ISO
 description: Гайд по получению сертификата ISO
-publish: publish
+publish: "true"
 date: ""
 ---
 ## Что такое ISO 
@@ -78,7 +78,7 @@ date: ""
 1. ==(процесс сложный, изучаю)==
 2. [Курс по ISO 9001](https://digital.lorators.com/iso-training/) - ==пройден==. Курс рассказывает, что такое ISO сертификат для работника - курс для работника. На самом деле супер базовый 
 3. Чек Лист для ISO 9001
-![[BAB-ISO-9001-Checklist.pdf]]
+![[ISO-9001-Checklist.pdf]]
 
 
 ###### Цена: 
