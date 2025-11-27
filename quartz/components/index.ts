@@ -24,6 +24,9 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 
+// Custom
+import Links from "./Links"
+
 export {
   ArticleTitle,
   Content,
@@ -50,4 +53,6 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+    // Custom
+  Links,
 }
