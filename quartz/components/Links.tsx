@@ -22,7 +22,7 @@ export default ((userOpts?: Partial<Options>) => {
         <h3>{opts.title}</h3>
         <ul>
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/notes">Обо мне</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/Обо мне">Обо мне</a></h3>
           </li>
           <li>
             <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/life">Гайды</a></h3>
