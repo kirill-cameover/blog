@@ -27,17 +27,17 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [
     // Component.PageTitle(),
-    // Component.MobileOnly(Component.Spacer()),
-    // Component.Flex({
-    //  components: [
-    //    {
-    //      Component: Component.Search(),
-    //      grow: true,
-    //    },
-    //    { Component: Component.Darkmode() },
-    //    { Component: Component.ReaderMode() },
-    //  ],
-  //  }),
+     Component.MobileOnly(Component.Spacer()),
+     Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
     Component.Explorer(),
   ],
   right: [
@@ -48,17 +48,17 @@ export const defaultContentPageLayout: PageLayout = {
   header: [
     Component.PageTitle(),
     Component.Links(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
+  //  Component.MobileOnly(Component.Spacer()),
+  //  Component.Flex({
+  //    components: [
+  //      {
+  //        Component: Component.Search(),
+  //        grow: true,
+  //      },
+  //      { Component: Component.Darkmode() },
+  //      { Component: Component.ReaderMode() },
+  //    ],
+  //  }),
     // Component.Explorer(),
   ],
 }

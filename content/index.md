@@ -1,7 +1,6 @@
 ---
 title: Welcome to Kirill Garden
-tags:
-  - CV
+tags: []
 description: Краткая информация про меня
 publish: true
 date: 2025-11-06
