@@ -1,11 +1,17 @@
 .links {
-   ul {
+  ul {
     list-style: none;
     margin-top: 1rem;
     padding-left: 0;
 
+    display: flex;           /* make items horizontal */
+    flex-wrap: wrap;         /* wrap on smaller screens */
+    gap: 1rem;               /* space between items */
+    align-items: center;     
+
     & > li {
-      margin: 1rem 0;
+      margin: 0;             /* remove vertical margin */
+      /* keep link visuals compact */
       .section > .desc > h3 > a {
         background-color: transparent;
       }
@@ -13,6 +19,12 @@
       .section > .meta {
         margin: 0 0 0.5rem 0;
         opacity: 0.6;
+      }
+
+      /* optional: make the H3 inline so it doesn't force vertical spacing */
+      h3 {
+        margin: 0;
+        font-weight: 600;
       }
     }
   }
