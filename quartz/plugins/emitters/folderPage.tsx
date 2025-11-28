@@ -123,7 +123,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
         ...beforeBody,
         pageBody,
         ...afterBody,
-        ...left,
+      //  ...left,
         ...right,
         Footer,
       ]
