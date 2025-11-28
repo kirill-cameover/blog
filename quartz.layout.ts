@@ -25,31 +25,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
   ],
-  left: [
+  // left: [
     // Component.PageTitle(),
-     Component.MobileOnly(Component.Spacer()),
-     Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.Explorer(),
-  ],
-  right: [
-    // Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    // Component.Backlinks(),
-  ],
-  header: [
-    Component.PageTitle(),
-    Component.Links(),
-  //  Component.MobileOnly(Component.Spacer()),
-  //  Component.Flex({
+  //   Component.MobileOnly(Component.Spacer()),
+  //   Component.Flex({
   //    components: [
   //      {
   //        Component: Component.Search(),
@@ -59,7 +38,28 @@ export const defaultContentPageLayout: PageLayout = {
   //      { Component: Component.ReaderMode() },
   //    ],
   //  }),
-    // Component.Explorer(),
+  //  Component.Explorer(),
+  //],
+  right: [
+    // Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    // Component.Backlinks(),
+  ],
+  header: [
+    Component.PageTitle(),
+    Component.Links(),
+    Component.MobileOnly(Component.Spacer()),
+   Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
+     Component.Explorer(),
   ],
 }
 
