@@ -42,6 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     // Component.Graph(),
+    Component.Explorer(),
     Component.DesktopOnly(Component.TableOfContents()),
     // Component.Backlinks(),
   ],
@@ -59,7 +60,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-     Component.Explorer(),
+    // Component.Explorer(),
   ],
 }
 

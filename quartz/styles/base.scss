@@ -271,12 +271,18 @@ a {
       min-width: 100%;
       margin-left: auto;
       margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
       @media all and ($tablet) {
         margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
       @media all and ($mobile) {
         margin-right: 0;
         margin-left: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
     & footer {
