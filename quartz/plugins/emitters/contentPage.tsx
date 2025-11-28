@@ -53,7 +53,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
     ...userOpts,
   }
 
-  const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
+  const { head: Head, header, beforeBody, pageBody, afterBody, right, footer: Footer } = opts // left,
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
 
@@ -68,7 +68,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         ...beforeBody,
         pageBody,
         ...afterBody,
-        ...left,
+      //  ...left,
         ...right,
         Footer,
       ]

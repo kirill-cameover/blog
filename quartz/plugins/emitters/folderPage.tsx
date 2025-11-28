@@ -108,7 +108,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
     ...userOpts,
   }
 
-  const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
+  const { head: Head, header, beforeBody, pageBody, afterBody, right, footer: Footer } = opts // left,
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
 
