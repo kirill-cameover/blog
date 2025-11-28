@@ -17,7 +17,7 @@ interface RenderComponents {
   beforeBody: QuartzComponent[]
   pageBody: QuartzComponent
   afterBody: QuartzComponent[]
-//  left: QuartzComponent[]
+  left: QuartzComponent[]
   right: QuartzComponent[]
   footer: QuartzComponent
 }
@@ -234,7 +234,7 @@ export function renderPage(
     beforeBody,
     pageBody: Content,
     afterBody,
-  //  left,
+    left,
     right,
     footer: Footer,
   } = components
