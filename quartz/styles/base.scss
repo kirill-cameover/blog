@@ -220,6 +220,22 @@ a {
       position: sticky;
     }
 
+    & .sidebar.left {
+      z-index: 1;
+      grid-area: grid-sidebar-left;
+      flex-direction: column;
+      @media all and ($mobile) {
+        gap: 0;
+        align-items: center;
+        position: initial;
+        display: flex;
+        height: unset;
+        flex-direction: row;
+        padding: 0;
+        padding-top: 2rem;
+      }
+    }
+
     & .sidebar.right {
       grid-area: grid-sidebar-right;
       margin-right: 0;
@@ -271,18 +287,12 @@ a {
       min-width: 100%;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
       @media all and ($tablet) {
         margin-right: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
       }
       @media all and ($mobile) {
         margin-right: 0;
         margin-left: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
       }
     }
     & footer {
