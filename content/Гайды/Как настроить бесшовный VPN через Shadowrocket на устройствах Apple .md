@@ -65,7 +65,7 @@ date: 2025-11-24
 # Как установить Shadowrocket
 ### Вариант 1. Купить в App Store
 1. Найдите Shadowrocket в [App Store](https://apps.apple.com/ru/app/shadowrocket/id932747118)
-2. Цена — около **4 $** или примерно **249 руб** — это в разы дешевле аналогов вроде Surge (~49 $ / ~4490 ₽).
+2. Цена — около **4 USD** или примерно **249 ₽** — это в разы дешевле аналогов вроде Surge (~49 USD / ~4490 ₽).
 3. Оплатить из России можно, например, через МТС или [Tele2](https://u.t2.ru/loyalty-referrer?referrerId=92829F3943C114A7E0545026901C6E24&utm_campaign=come_to_loyalty_program_more&utm_medium=external_link&utm_source=link_bolshe) или другие доступные вам способы пополнения Apple ID.
 ### Вариант 2. Условно «бесплатно» через Wannaflix
 > [!warning] Важно
@@ -93,10 +93,11 @@ Shadowrocket можно настроить за 10–20 минут и забыт
 что идёт через прокси (PROXY), а что — напрямую (DIRECT).
 
 Выглядит это примерно так: 
-`[Rule] // Правила`
-`DOMAIN-KEYWORD,youtube,PROXY` // *Отправляем домен по ключевому слову в прокси*
-`DOMAIN-SUFFIX,chat.openai.com,PROXY` // *Отправляем именно название домена с зоной в прокси*
-`RULE-SET, https://domains_community.list, PROXY` // *Списки доменов через прокси* `FINAL,DIRECT` // *Все, что не попало выше через провайдера*
+- `[Rule] // Правила`
+- `DOMAIN-KEYWORD,youtube,PROXY` // *Отправляем домен по ключевому слову в прокси*
+- `DOMAIN-SUFFIX,chat.openai.com,PROXY` // *Отправляем именно название домена с зоной в прокси*
+- `RULE-SET, https://domains_community.list, PROXY` // *Списки доменов через прокси*
+- `FINAL,DIRECT` // *Все, что не попало выше через провайдера*
 
 **Здесь важно понимать:**
 - PROXY — направляет трафик на сторонний сервер (VPS, прокси, подписка).
