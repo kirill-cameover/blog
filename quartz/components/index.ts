@@ -58,5 +58,5 @@ export {
     // Custom
   Links,
   ScrollToTop,
-  _RandomPageButton,
+  RandomPageButton,
 }
