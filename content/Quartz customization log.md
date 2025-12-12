@@ -312,16 +312,12 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     if (fileData.slug === "index") {
       return null
     }
-
     const text = fileData.text
-
     if (text) {
       const segments: (string | JSX.Element)[] = []
-
       if (fileData.dates) {
         segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
       }
-
       // Display reading time if enabled
       if (options.showReadingTime) {
         const { minutes, words: _words } = readingTime(text)
@@ -330,7 +326,6 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         })
         segments.push(<span>{displayedTime}</span>)
       }
-
       return (
         <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
           {segments}

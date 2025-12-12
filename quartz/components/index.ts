@@ -26,6 +26,8 @@ import ConditionalRender from "./ConditionalRender"
 
 // Custom
 import Links from "./Links"
+import ScrollToTop from "./_ScrollToTop"
+import RandomPageButton from "./_RandomPageButton"
 
 export {
   ArticleTitle,
@@ -55,4 +57,6 @@ export {
   ConditionalRender,
     // Custom
   Links,
+  ScrollToTop,
+  _RandomPageButton,
 }
