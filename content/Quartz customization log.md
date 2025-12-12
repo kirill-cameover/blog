@@ -11,7 +11,7 @@ date: ""
 
 
 ### Первые шаги 
-###### 1. Изменить `quartz.config.ts`
+##### 1. Изменить `quartz.config.ts`
 - BaseUrl - kirill-cameover.github.io/blog
 ```ts
 baseUrl: "kirill-cameover.github.io/blog",
@@ -74,7 +74,14 @@ provider: "plausible",
 ```
 Пока не изменил
 ```
-###### 2. Изменить `quartz.layout.ts`
+
+- Изменить Favicon & Page banner
+Нужна папка `quartz/static/`
+
+Заменить картинки на свои с такими же названиями: 
+- [x] `icon.png` - favicon 
+- [ ]  `og-image.png` -  banner картинка, которая появляется при отправке или в поиске 
+##### 2. Изменить `quartz.layout.ts`
 Тут я изменил расположение элементов на странице и создал ещё дополнительный элемент Links 
 - Footer - изменить ссылки и название на свои. 
 ```ts
@@ -118,7 +125,7 @@ Component.Links(),
 ],
 ```
 
-###### 3. Создание своих компонентов
+##### 3. Создание своих компонентов
 - Links - Это компонент, который содержит в себе фиксированные ссылки на важные по моему мнению страницы. Я его использую в качестве меню в Headers в классическом понимании. 
 Что нужно сделать: 
 	1. Создать файл в `quartz/componets/` - Links.tsx
@@ -206,4 +213,137 @@ export default ((userOpts?: Partial<Options>) => {
 ```
 
 3. Добавить новый компонент в `quartz.layout.ts` 
+- `Component.Links(),` 
+
+##### Убрать даты и другие данные со страницы индексирование(главная страница) 
+
+- Было: 
+```tsx title="ContentMeta.tsx"
+import { Date, getDate } from "./Date"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import readingTime from "reading-time"
+import { classNames } from "../util/lang"
+import { i18n } from "../i18n"
+import { JSX } from "preact"
+import style from "./styles/contentMeta.scss"
+
+interface ContentMetaOptions {
+  /**
+   * Whether to display reading time
+   */
+  showReadingTime: boolean
+  showComma: boolean
+}
+
+const defaultOptions: ContentMetaOptions = {
+  showReadingTime: true,
+  showComma: true,
+}
+
+export default ((opts?: Partial<ContentMetaOptions>) => {
+  // Merge options with defaults
+  const options: ContentMetaOptions = { ...defaultOptions, ...opts }
+
+  function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
+    const text = fileData.text
+
+    if (text) {
+      const segments: (string | JSX.Element)[] = []
+
+      if (fileData.dates) {
+        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
+      }
+
+      // Display reading time if enabled
+      if (options.showReadingTime) {
+        const { minutes, words: _words } = readingTime(text)
+        const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
+          minutes: Math.ceil(minutes),
+        })
+        segments.push(<span>{displayedTime}</span>)
+      }
+
+      return (
+        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
+          {segments}
+        </p>
+      )
+    } else {
+      return null
+    }
+  }
+
+  ContentMetadata.css = style
+
+  return ContentMetadata
+}) satisfies QuartzComponentConstructor
+```
+
+- Стало: 
+
+```tsx title="ContentMeta.tsx"
+import { Date, getDate } from "./Date"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import readingTime from "reading-time"
+import { classNames } from "../util/lang"
+import { i18n } from "../i18n"
+import { JSX } from "preact"
+import style from "./styles/contentMeta.scss"
+
+interface ContentMetaOptions {
+  /**
+   * Whether to display reading time
+   */
+  showReadingTime: boolean
+  showComma: boolean
+}
+
+const defaultOptions: ContentMetaOptions = {
+  showReadingTime: true,
+  showComma: true,
+}
+
+export default ((opts?: Partial<ContentMetaOptions>) => {
+  // Merge options with defaults
+  const options: ContentMetaOptions = { ...defaultOptions, ...opts }
+
+  function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
+    // Don't show metadata for index page
+    if (fileData.slug === "index") {
+      return null
+    }
+
+    const text = fileData.text
+
+    if (text) {
+      const segments: (string | JSX.Element)[] = []
+
+      if (fileData.dates) {
+        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
+      }
+
+      // Display reading time if enabled
+      if (options.showReadingTime) {
+        const { minutes, words: _words } = readingTime(text)
+        const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
+          minutes: Math.ceil(minutes),
+        })
+        segments.push(<span>{displayedTime}</span>)
+      }
+
+      return (
+        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
+          {segments}
+        </p>
+      )
+    } else {
+      return null
+    }
+  }
+
+  ContentMetadata.css = style
+
+  return ContentMetadata
+}) satisfies QuartzComponentConstructor
+```
 

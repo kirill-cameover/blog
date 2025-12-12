@@ -24,6 +24,11 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
+    // Don't show metadata for index page
+    if (fileData.slug === "index") {
+      return null
+    }
+
     const text = fileData.text
 
     if (text) {
