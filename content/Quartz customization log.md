@@ -12,15 +12,198 @@ date: ""
 
 ### Первые шаги 
 ###### 1. Изменить `quartz.config.ts`
-- BaseUrl 
-```
-
+- BaseUrl - kirill-cameover.github.io/blog
+```ts
+baseUrl: "kirill-cameover.github.io/blog",
 ```
 - Title - название, заголовок сайта 
+```ts
+pageTitle: "Kirill Cholak",
+```
 - Язык 
+```ts
+locale: "ru-RU",
+```
+- Типография
+```ts
+typography: {
+header: "Noto Sans",
+body: "Roboto",
+code: "IBM Plex Mono",
+```
+- Цвета темы: 
+	Было: 
+```ts
+colors: {
+lightMode: {
+light: "#faf8f8",
+lightgray: "#e5e5e5",
+gray: "#b8b8b8",
+darkgray: "#4e4e4e",
+dark: "#2b2b2b",
+secondary: "#284b63",
+tertiary: "#84a59d",
+highlight: "rgba(143, 159, 169, 0.15)",
+textHighlight: "#fff23688",
+},
+darkMode: {
+light: "#161618",
+lightgray: "#393639",
+gray: "#646464",
+darkgray: "#d4d4d4",
+dark: "#ebebec",
+secondary: "#7b97aa",
+tertiary: "#84a59d",
+highlight: "rgba(143, 159, 169, 0.15)",
+textHighlight: "#b3aa0288",
+```
+
+- [ ] Cтало: 
+```
+Пока не изменил
+```
+
+- [ ] Нужно будет ещё изменить Аналитику
 Было: 
+```ts
+analytics: {
+provider: "plausible",
+},
+```
+Стало 
+```
+Пока не изменил
+```
+###### 2. Изменить `quartz.layout.ts`
+Тут я изменил расположение элементов на странице и создал ещё дополнительный элемент Links 
+- Footer - изменить ссылки и название на свои. 
+```ts
+footer: Component.Footer({
+links: {
+"Telegram": "https://t.me/kirillciolac",
+},
+```
+- Left - расположение элементов слева, без изменений 
+```ts 
+left: [
+	Component.PageTitle(),
+	Component.MobileOnly(Component.Spacer()),
+	Component.Flex({
+	components: [
+			{
+			Component: Component.Search(),
+			grow: true,
+			},
+			{ Component: Component.Darkmode() },
+			{ Component: Component.ReaderMode() },
+		],
+	}),
+	Component.Explorer(),
+],
+```
+- Right - Удалил Граф, бэклинки и Explorer - мне они кажутся лишними. Оставил только Оглавление "TableOfContents" - только десктоп. 
+```ts 
+right: [
+// Component.Graph(),
+// Component.Explorer(),
+Component.DesktopOnly(Component.TableOfContents()),
+// Component.Backlinks(),
+],
+```
+- Header - Добавил новый элемент Links - это по факту быстрые ссылки на важные страницы, чтобы было доступно всегда 
+```ts 
+header: [
+// Component.PageTitle(),
+Component.Links(),
+],
 ```
 
+###### 3. Создание своих компонентов
+- Links - Это компонент, который содержит в себе фиксированные ссылки на важные по моему мнению страницы. Я его использую в качестве меню в Headers в классическом понимании. 
+Что нужно сделать: 
+	1. Создать файл в `quartz/componets/` - Links.tsx
+
+```tsx title="Links.tsx"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { FullSlug, SimpleSlug, resolveRelative } from "../util/path"
+import { QuartzPluginData } from "../plugins/vfile"
+import { byDateAndAlphabetical } from "./PageList"
+import style from "./styles/links.scss"
+import { Date, getDate } from "./Date"
+import { GlobalConfiguration } from "../cfg"
+
+interface Options {
+  title: string
+}
+
+const defaultOptions = (cfg: GlobalConfiguration): Options => ({
+  title: "",
+})
+
+export default ((userOpts?: Partial<Options>) => {
+  function Links({ allFiles, fileData, displayClass, cfg }: QuartzComponentProps) {
+    const opts = { ...defaultOptions(cfg), ...userOpts }
+    return (
+      <div class={`links ${displayClass ?? ""}`}>
+        <h3>{opts.title}</h3>
+        <ul>
+          <li>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/me">Обо мне</a></h3>
+          </li>
+          <li>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/life">Гайды</a></h3>
+          </li>
+          <li>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/posts">Посты</a></h3>
+          </li>
+          <li>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/projects">Проекты</a></h3>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
+  Links.css = style
+  return Links
+}) satisfies QuartzComponentConstructor
 ```
 
+2. Создать файл в `quartz/componets/styles` - links.scss
+
+```scss title="links.scss"
+.links {
+  ul {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+
+    display: flex;           /* make items horizontal */
+    flex-wrap: wrap;         /* wrap on smaller screens */
+    gap: 1rem;               /* space between items */
+    align-items: center;     
+
+    & > li {
+      margin: 0;             /* remove vertical margin */
+      /* keep link visuals compact */
+      .section > .desc > h3 > a {
+        background-color: transparent;
+      }
+
+      .section > .meta {
+        margin: 0 0 0.5rem 0;
+        opacity: 0.6;
+      }
+
+      /* optional: make the H3 inline so it doesn't force vertical spacing */
+      h2 {
+        margin: 0;
+        font-weight: 600;
+      }
+    }
+  }
+}
+```
+
+3. Добавить новый компонент в `quartz.layout.ts` 
 
